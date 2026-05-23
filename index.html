@@ -39,17 +39,17 @@
                                                                                                                                                                                  
     track("pageview");                        
                                                                                                                                                                                  
-    function wireButtons(){                                                                                                                                                    
-      document.querySelectorAll("[data-trackpanel]").forEach(function(el){                                                                                                       
-        var q=new URLSearchParams(getUtms()).toString();
-        var fallback="https://t.me/+-HTW8oHjvf0xZWYx";                                                                                                                           
-        var params=(q?q+"&":"")+"fallback="+encodeURIComponent(fallback);                                                                                                      
-        el.href=R+"?"+params;             
+    function wireButtons(){
+      document.querySelectorAll("[data-trackpanel]").forEach(function(el){
+        el.href="https://t.me/+-HTW8oHjvf0xZWYx";
         el.addEventListener("click",function(){
-          if(typeof fbq!=="undefined") fbq('trackCustom','TrackOut');                                                                                                            
+          var q=new URLSearchParams(getUtms()).toString();
+          var params=(q?q+"&":"")+"fallback="+encodeURIComponent("https://t.me/+-HTW8oHjvf0xZWYx");
+          fetch(R+"?"+params,{keepalive:true}).catch(function(){});
+          if(typeof fbq!=="undefined") fbq('trackCustom','TrackOut');
         },true);
-      });                                                                                                                                                                        
-    }                                                                                                                                                                          
+      });
+    }
     document.addEventListener('DOMContentLoaded', wireButtons);                                                                                                                                                               
                                                                                                                                                                                
     document.addEventListener("click",function(e){
