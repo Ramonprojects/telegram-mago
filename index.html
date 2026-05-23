@@ -1,15 +1,15 @@
-  <!DOCTYPE html>                                                                                                                                                                
+<!DOCTYPE html>                                                                                                                                                                
   <html lang="pt-BR">                                                                                                                                                            
   <head>                                                                                                                                                                         
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">                                                                                                                                                         
   <meta name="viewport" content="width=device-width, initial-scale=1.0">                                                                                                         
-  <title>Canal VIP — Telegram</title>                                                                                                                                            
+  <title>Canal VIP — Telegram</title>         
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">                
-                                                                                                                                                                               
-  <script>                                
-  (function(){                                                                                                                                                                   
+                                              
+  <script>                                                                                                                                                                       
+  (function(){                                                                                                                                                                 
     var B="https://smartico-dashboard-production.up.railway.app/track/34c58208-a263-4454-bbc4-6b736e47d42b";                                                                     
-    var R="https://smartico-dashboard-production.up.railway.app/track/34c58208-a263-4454-bbc4-6b736e47d42b/redirect";                                                            
+    var R="https://smartico-dashboard-production.up.railway.app/track/34c58208-a263-4454-bbc4-6b736e47d42b/redirect";                                                          
     var k="_tid";                                                                                                                                                                
     var sid=sessionStorage.getItem(k)||(Math.random().toString(36).slice(2)+Date.now().toString(36));                                                                          
     sessionStorage.setItem(k,sid);                                                                                                                                               
@@ -17,7 +17,7 @@
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.
   version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.faceb
   ook.net/en_US/fbevents.js');                                                                                                                                                   
-    fbq('init','2170986273738009');                                                                                                                                               
+    fbq('init','2170986273738009');                                                                                                                                              
     fbq('track','PageView');                                                                                                                                                     
                                                                                                                                                                                  
     var sp=new URLSearchParams(location.search);                                                                                                                               
@@ -35,26 +35,28 @@
         body:JSON.stringify({event_type:type,session_id:sid,url:location.href,metadata:Object.assign({},getUtms(),meta||{})}),                                                 
         keepalive:true                                                                                                                                                           
       }).catch(function(){});                                                                                                                                                  
-    }                                                                                                                                                                            
+    }
                                                                                                                                                                                  
-    track("pageview");                                                                                                                                                           
+    track("pageview");                        
                                                                                                                                                                                  
     function wireButtons(){                                                                                                                                                    
       document.querySelectorAll("[data-trackpanel]").forEach(function(el){                                                                                                       
-        var q=new URLSearchParams(getUtms()).toString();                                                                                                                       
-        el.href=R+(q?"?"+q:"");               
+        var q=new URLSearchParams(getUtms()).toString();
+        var fallback="https://t.me/+-HTW8oHjvf0xZWYx";                                                                                                                           
+        var params=(q?q+"&":"")+"fallback="+encodeURIComponent(fallback);                                                                                                      
+        el.href=R+"?"+params;             
         el.addEventListener("click",function(){
           if(typeof fbq!=="undefined") fbq('trackCustom','TrackOut');                                                                                                            
-        },true);                                                                                                                                                                 
+        },true);
       });                                                                                                                                                                        
-    }                                                                                                                                                                            
+    }                                                                                                                                                                          
     wireButtons();                                                                                                                                                               
-                                                                                                                                                                                 
-    document.addEventListener("click",function(e){                                                                                                                               
+                                                                                                                                                                               
+    document.addEventListener("click",function(e){
       var el=e.target;                                                                                                                                                           
-      while(el&&el!==document.body){                                                                                                                                           
-        if(el.dataset&&el.dataset.track){     
-          track("click",{label:el.dataset.track,text:el.innerText||""});
+      while(el&&el!==document.body){
+        if(el.dataset&&el.dataset.track){                                                                                                                                        
+          track("click",{label:el.dataset.track,text:el.innerText||""});                                                                                                       
           return;                             
         }                                                                                                                                                                        
         if(el.tagName==="BUTTON"||el.tagName==="A"){
@@ -73,35 +75,35 @@
       width:100%; height:100%; overflow:hidden;
       font-family:'Barlow',sans-serif;        
       background:#030408;                                                                                                                                                        
-      color:#F0EDE8;
+      color:#F0EDE8;                          
       display:flex; align-items:center; justify-content:center;                                                                                                                  
     }                                                                                                                                                                          
                                                                                                                                                                                  
-    #holo {                                                                                                                                                                      
-      position:fixed; inset:0;            
-      pointer-events:none;                                                                                                                                                       
+    #holo {                                                                                                                                                                    
+      position:fixed; inset:0;                                                                                                                                                   
+      pointer-events:none;                                                                                                                                                     
       z-index:1;                                                                                                                                                                 
-    }                                         
+    }                                                                                                                                                                          
                                                                                                                                                                                  
-    .page {                                                                                                                                                                    
+    .page {                                   
       display:flex; flex-direction:column;                                                                                                                                       
-      align-items:center; justify-content:center;
+      align-items:center; justify-content:center;                                                                                                                              
       width:100%; max-width:400px;                                                                                                                                               
-      padding:0 24px;                                                                                                                                                          
+      padding:0 24px;                         
       position:relative; z-index:10;                                                                                                                                             
-      gap:0;                              
+      gap:0;                                                                                                                                                                   
     }                                                                                                                                                                            
-                                                                                                                                                                                 
-    .tg-icon-wrap {
+                                          
+    .tg-icon-wrap {                                                                                                                                                              
       width:72px; height:72px;                                                                                                                                                   
-      background:rgba(41,182,246,0.10);                                                                                                                                        
+      background:rgba(41,182,246,0.10);       
       border:1px solid rgba(41,182,246,0.25);                                                                                                                                    
       border-radius:50%;                                                                                                                                                       
       display:flex; align-items:center; justify-content:center;                                                                                                                  
-      margin-bottom:20px;                                                                                                                                                        
+      margin-bottom:20px;
       animation: fadeDown .6s ease both;                                                                                                                                         
-      box-shadow: 0 0 24px rgba(41,182,246,0.15);                                                                                                                                
-    }                                                                                                                                                                          
+      box-shadow: 0 0 24px rgba(41,182,246,0.15);                                                                                                                              
+    }                                                                                                                                                                            
     .tg-icon-wrap svg { width:36px; height:36px; fill:#29B6F6; }                                                                                                                 
                                                                                                                                                                                  
     .scarcity {                                                                                                                                                                  
@@ -111,36 +113,36 @@
       border-radius:100px;                                                                                                                                                       
       padding:6px 16px;                                                                                                                                                        
       font-family:'Barlow Condensed',sans-serif;                                                                                                                                 
-      font-size:12px; font-weight:700;
+      font-size:12px; font-weight:700;    
       letter-spacing:1.5px; text-transform:uppercase;                                                                                                                            
-      color:#FF6B6B;                                                                                                                                                           
-      margin-bottom:24px;                                                                                                                                                        
+      color:#FF6B6B;                                                                                                                                                             
+      margin-bottom:24px;                     
       animation: fadeDown .6s .06s ease both;                                                                                                                                    
-    }                                         
+    }                                                                                                                                                                          
     .dot-red {                                                                                                                                                                   
       width:7px; height:7px; background:#FF4444;                                                                                                                               
       border-radius:50%; animation:blink 1s infinite; flex-shrink:0;                                                                                                             
     }                                                                                                                                                                          
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }                                                                                                                      
-                                                                                                                                                                               
+                                                                                                                                                                                 
     .copy {                                                                                                                                                                      
-      width:100%; text-align:center;                                                                                                                                           
+      width:100%; text-align:center;                                                                                                                                             
       display:flex; flex-direction:column; align-items:center;                                                                                                                   
-      gap:8px; margin-bottom:24px;                                                                                                                                             
+      gap:8px; margin-bottom:24px;                                                                                                                                               
       animation: fadeDown .6s .12s ease both;                                                                                                                                    
     }                                                                                                                                                                            
-    h1 {                                      
-      font-family:'Bebas Neue',sans-serif;                                                                                                                                       
-      font-size:52px; letter-spacing:2px; line-height:1; color:#fff;                                                                                                           
-      text-shadow: 0 0 40px rgba(41,182,246,0.2);                                                                                                                                
-    }                                                                                                                                                                          
-    .sub {                                                                                                                                                                       
+    h1 {                                                                                                                                                                         
+      font-family:'Bebas Neue',sans-serif;
+      font-size:52px; letter-spacing:2px; line-height:1; color:#fff;                                                                                                             
+      text-shadow: 0 0 40px rgba(41,182,246,0.2);                                                                                                                              
+    }                                                                                                                                                                            
+    .sub {                                                                                                                                                                     
       font-size:14px; color:rgba(255,255,255,.4); line-height:1.7; max-width:300px;                                                                                              
     }                                                                                                                                                                            
     .sub span { color:#29B6F6; font-weight:600; }                                                                                                                                
                                                                                                                                                                                  
     .cta-wrap {                                                                                                                                                                  
-      width:100%; display:flex; flex-direction:column;
+      width:100%; display:flex; flex-direction:column;                                                                                                                           
       align-items:center; gap:12px;                                                                                                                                              
       animation: fadeUp .6s .18s ease both;                                                                                                                                    
     }                                                                                                                                                                            
@@ -148,17 +150,17 @@
       display:flex; align-items:center; justify-content:center; gap:10px;
       width:100%; background:#29B6F6; color:#000;                                                                                                                                
       font-family:'Barlow Condensed',sans-serif;                                                                                                                               
-      font-weight:900; font-size:20px;    
-      letter-spacing:2px; text-transform:uppercase;                                                                                                                              
+      font-weight:900; font-size:20px;                                                                                                                                           
+      letter-spacing:2px; text-transform:uppercase;                                                                                                                            
       padding:17px; border-radius:10px;                                                                                                                                          
       text-decoration:none; transition:all .22s;                                                                                                                                 
       box-shadow:0 4px 28px rgba(41,182,246,.35);                                                                                                                                
-      position:relative; overflow:hidden;                                                                                                                                      
-    }                                                                                                                                                                            
-    .cta::before {                                                                                                                                                             
-      content:''; position:absolute;                                                                                                                                             
+      position:relative; overflow:hidden;                                                                                                                                        
+    }                                                                                                                                                                          
+    .cta::before {                                                                                                                                                               
+      content:''; position:absolute;                                                                                                                                           
       top:0; left:-100%; width:100%; height:100%;                                                                                                                                
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);                                                                                           
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);                                                                                         
       animation:shimmer 2.5s infinite;                                                                                                                                           
     }                                                                                                                                                                          
     @keyframes shimmer { 0%{left:-100%} 100%{left:100%} }                                                                                                                        
@@ -175,9 +177,9 @@
     .age-badge {                                                                                                                                                                 
       width:28px; height:28px;                                                                                                                                                   
       border:1.5px solid rgba(255,255,255,.18); border-radius:50%;                                                                                                               
-      display:flex; align-items:center; justify-content:center;                                                                                                                  
+      display:flex; align-items:center; justify-content:center;                                                                                                                
       font-size:10px; font-weight:700; color:rgba(255,255,255,.3); flex-shrink:0;                                                                                                
-    }                                                                                                                                                                          
+    }                                                                                                                                                                            
     .age-text {                                                                                                                                                                  
       font-size:11px; color:rgba(255,255,255,.18);                                                                                                                               
       text-transform:uppercase; letter-spacing:1px; font-weight:600;                                                                                                             
@@ -185,35 +187,35 @@
                                                                                                                                                                                  
     .copyright {                                                                                                                                                                 
       margin-top:20px; font-size:11px;                                                                                                                                           
-      color:rgba(255,255,255,.1); text-align:center;                                                                                                                             
+      color:rgba(255,255,255,.1); text-align:center;
       animation: fadeUp .6s .24s ease both;                                                                                                                                      
     }                                                                                                                                                                          
-
-    @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }                                                                    
-    @keyframes fadeUp   { from{opacity:0;transform:translateY(14px)}  to{opacity:1;transform:translateY(0)} }
-    @keyframes popRed   { 0%{transform:scale(1.3);color:#FF2222} 100%{transform:scale(1);color:#FF6B6B} }                                                                        
+                                                                                                                                                                                 
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(14px)}  to{opacity:1;transform:translateY(0)} }                                                                    
+    @keyframes popRed   { 0%{transform:scale(1.3);color:#FF2222} 100%{transform:scale(1);color:#FF6B6B} }                                                                      
   </style>                                                                                                                                                                       
-  </head>                                 
+  </head>                                                                                                                                                                      
   <body>                                                                                                                                                                         
                                                                                                                                                                                  
   <canvas id="holo"></canvas>                                                                                                                                                    
                                                                                                                                                                                  
   <div class="page">                                                                                                                                                           
 
-    <div class="tg-icon-wrap">
+    <div class="tg-icon-wrap">                
       <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447
    1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.028l-2.96-.924c-.643-.2-.657-.643.136-.953l11.57-4.461c.537-.194 
-  1.006.131.958.531z"/></svg>             
+  1.006.131.958.531z"/></svg>                                                                                                                                                    
     </div>
                                                                                                                                                                                  
-    <div class="scarcity">
+    <div class="scarcity">                                                                                                                                                     
       <div class="dot-red"></div>                                                                                                                                                
       Quem não entrou hoje já perdeu <span id="lost" style="margin:0 4px">R$847</span>                                                                                         
     </div>                                    
                                           
-    <div class="copy">                                                                                                                                                           
+    <div class="copy">
       <h1>Cada minuto fora<br>custa dinheiro.</h1>                                                                                                                               
-      <p class="sub">Enquanto você hesita, membros do canal já estão lucrando agora no <span>Telegram</span>. Não deixe pra depois. 👇</p>                                       
+      <p class="sub">Enquanto você hesita, membros do canal já estão lucrando agora no <span>Telegram</span>. Não deixe pra depois. 👇</p>
     </div>                                                                                                                                                                       
                                                                                                                                                                                
     <div class="cta-wrap">                                                                                                                                                       
@@ -223,34 +225,34 @@
   13.028l-2.96-.924c-.643-.2-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.958.531z"/></svg>                                                                              
         <span class="cta-text">Garantir Minha Vaga</span>                                                                                                                        
       </a>                                                                                                                                                                       
-      <div class="age">                   
+      <div class="age">                                                                                                                                                          
         <div class="age-badge">18+</div>                                                                                                                                         
         <span class="age-text">Proibido menores · Jogue com responsabilidade</span>                                                                                              
       </div>                                  
     </div>                                                                                                                                                                       
-                                                                                                                                                                               
+                                                                                                                                                                                 
     <p class="copyright">© 2025 — Todos os direitos reservados</p>                                                                                                               
-  </div>                                                                                                                                                                       
+  </div>                                                                                                                                                                         
                                                                                                                                                                                  
   <script>                                                                                                                                                                       
   const canvas = document.getElementById('holo');
   const ctx = canvas.getContext('2d');                                                                                                                                           
                                                                                                                                                                                
-  function resize() {
-    canvas.width  = window.innerWidth;                                                                                                                                           
-    canvas.height = window.innerHeight;       
-  }                                                                                                                                                                              
-  resize();                                                                                                                                                                    
-  window.addEventListener('resize', resize);                                                                                                                                     
-   
-  const W = () => canvas.width;                                                                                                                                                  
-  const H = () => canvas.height;                                                                                                                                               
+  function resize() {                     
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;                                                                                                                                          
+  }
+  resize();                                                                                                                                                                      
+  window.addEventListener('resize', resize);                                                                                                                                   
                                               
-  const waves = [                         
-    { y: 0, speed: 0.4,  amp: 18, freq: 0.012, alpha: 0.18, color: '0,200,255',  width: 1.5 },
-    { y: 0, speed: 0.28, amp: 26, freq: 0.008, alpha: 0.10, color: '0,150,255',  width: 1.0 },                                                                                   
+  const W = () => canvas.width;           
+  const H = () => canvas.height;
+                                                                                                                                                                                 
+  const waves = [
+    { y: 0, speed: 0.4,  amp: 18, freq: 0.012, alpha: 0.18, color: '0,200,255',  width: 1.5 },                                                                                   
+    { y: 0, speed: 0.28, amp: 26, freq: 0.008, alpha: 0.10, color: '0,150,255',  width: 1.0 },                                                                                 
     { y: 0, speed: 0.55, amp: 12, freq: 0.018, alpha: 0.13, color: '80,220,255', width: 1.0 },
-    { y: 0, speed: 0.20, amp: 34, freq: 0.006, alpha: 0.07, color: '0,180,255',  width: 2.0 },                                                                                   
+    { y: 0, speed: 0.20, amp: 34, freq: 0.006, alpha: 0.07, color: '0,180,255',  width: 2.0 },
     { y: 0, speed: 0.70, amp:  8, freq: 0.022, alpha: 0.09, color: '120,240,255',width: 0.8 },                                                                                   
   ];                                                                                                                                                                             
                                                                                                                                                                                  
@@ -262,19 +264,19 @@
     r: Math.random() * 1.4 + 0.3,                                                                                                                                                
     vx: (Math.random() - 0.5) * 0.4,                                                                                                                                           
     vy: (Math.random() - 0.5) * 0.25,                                                                                                                                            
-    alpha: Math.random() * 0.4 + 0.05,                                                                                                                                           
-  }));                                        
-                                                                                                                                                                                 
-  let t = 0;                                                                                                                                                                   
-                                                                                                                                                                                 
-  function draw() {                                                                                                                                                            
-    ctx.clearRect(0, 0, W(), H());                                                                                                                                               
+    alpha: Math.random() * 0.4 + 0.05,                                                                                                                                         
+  }));                                                                                                                                                                           
+   
+  let t = 0;                                                                                                                                                                     
                                                                                                                                                                                
-    waves.forEach(w => {                  
-      w.y += w.speed * 0.3;
-      if (w.y > H() + 60) w.y = -60;                                                                                                                                             
+  function draw() {                                                                                                                                                              
+    ctx.clearRect(0, 0, W(), H());                                                                                                                                               
+   
+    waves.forEach(w => {                                                                                                                                                         
+      w.y += w.speed * 0.3;                                                                                                                                                    
+      if (w.y > H() + 60) w.y = -60;          
                                               
-      ctx.beginPath();                                                                                                                                                           
+      ctx.beginPath();                    
       for (let x = 0; x <= W(); x += 2) {                                                                                                                                        
         const y = w.y + Math.sin(x * w.freq + t * w.speed * 0.8) * w.amp;                                                                                                        
         x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);                                                                                                                           
@@ -285,52 +287,52 @@
       ctx.lineWidth = w.width;                                                                                                                                                   
       ctx.stroke();                                                                                                                                                              
                                                                                                                                                                                  
-      ctx.beginPath();
+      ctx.beginPath();                                                                                                                                                           
       for (let x = 0; x <= W(); x += 2) {                                                                                                                                        
-        const y = w.y + Math.sin(x * w.freq + t * w.speed * 0.8) * w.amp;                                                                                                      
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);                                                                                                                           
-      }                                                                                                                                                                        
-      ctx.strokeStyle = `rgba(${w.color},${w.alpha * 0.5})`;
-      ctx.lineWidth = w.width * 3;                                                                                                                                               
-      ctx.shadowBlur = 30;                    
-      ctx.stroke();                                                                                                                                                              
+        const y = w.y + Math.sin(x * w.freq + t * w.speed * 0.8) * w.amp;                                                                                                        
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);                                                                                                                         
+      }                                       
+      ctx.strokeStyle = `rgba(${w.color},${w.alpha * 0.5})`;                                                                                                                     
+      ctx.lineWidth = w.width * 3;            
+      ctx.shadowBlur = 30;                                                                                                                                                       
+      ctx.stroke();                                                                                                                                                            
       ctx.shadowBlur = 0;                                                                                                                                                        
-    });                                                                                                                                                                          
+    });                                                                                                                                                                        
                                                                                                                                                                                  
     particles.forEach(p => {                                                                                                                                                     
-      p.x += p.vx;                                                                                                                                                             
-      p.y += p.vy;
-      if (p.x < 0) p.x = W();                                                                                                                                                    
-      if (p.x > W()) p.x = 0;
-      if (p.y < 0) p.y = H();                                                                                                                                                    
-      if (p.y > H()) p.y = 0;                                                                                                                                                  
-
-      ctx.beginPath();                                                                                                                                                           
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0,200,255,${p.alpha})`;                                                                                                                              
+      p.x += p.vx;
+      p.y += p.vy;                                                                                                                                                               
+      if (p.x < 0) p.x = W();                                                                                                                                                  
+      if (p.x > W()) p.x = 0;                 
+      if (p.y < 0) p.y = H();             
+      if (p.y > H()) p.y = 0;                 
+                                                                                                                                                                                 
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);                                                                                                                                    
+      ctx.fillStyle = `rgba(0,200,255,${p.alpha})`;                                                                                                                            
       ctx.shadowBlur = 6;                                                                                                                                                        
-      ctx.shadowColor = 'rgba(0,200,255,0.5)';
+      ctx.shadowColor = 'rgba(0,200,255,0.5)';                                                                                                                                 
       ctx.fill();                                                                                                                                                                
-      ctx.shadowBlur = 0;                                                                                                                                                        
-    });                                   
-                                                                                                                                                                                 
-    ctx.strokeStyle = 'rgba(0,180,255,0.03)';                                                                                                                                    
-    ctx.lineWidth = 1;
-    const gs = 60;                                                                                                                                                               
-    for (let x = 0; x < W(); x += gs) {                                                                                                                                        
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H()); ctx.stroke();
-    }                                                                                                                                                                            
-    for (let y = 0; y < H(); y += gs) {       
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W(), y); ctx.stroke();                                                                                                       
-    }                                                                                                                                                                          
-                                                                                                                                                                                 
-    t += 0.018;                                                                                                                                                                
-    requestAnimationFrame(draw);                                                                                                                                                 
-  }                                                                                                                                                                              
-   
-  draw();                                                                                                                                                                        
+      ctx.shadowBlur = 0;
+    });                                                                                                                                                                          
                                                                                                                                                                                
-  const valores = [847, 923, 1105, 1284, 1390, 1512, 1678, 1820, 1947, 2103, 2250, 2389];
+    ctx.strokeStyle = 'rgba(0,180,255,0.03)';                                                                                                                                    
+    ctx.lineWidth = 1;                                                                                                                                                         
+    const gs = 60;                                                                                                                                                               
+    for (let x = 0; x < W(); x += gs) {       
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H()); ctx.stroke();                                                                                                       
+    }                                                                                                                                                                          
+    for (let y = 0; y < H(); y += gs) {                                                                                                                                          
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W(), y); ctx.stroke();
+    }                                                                                                                                                                            
+                                                                                                                                                                                 
+    t += 0.018;                                                                                                                                                                  
+    requestAnimationFrame(draw);                                                                                                                                                 
+  }                                                                                                                                                                            
+                                                                                                                                                                                 
+  draw();
+                                                                                                                                                                                 
+  const valores = [847, 923, 1105, 1284, 1390, 1512, 1678, 1820, 1947, 2103, 2250, 2389];                                                                                      
   let idx = 0;                            
   const lostEl = document.getElementById('lost');
   setInterval(() => {                                                                                                                                                            
